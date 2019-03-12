@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "node.h"
 #include "binarytree.h"
 
 void initialize(binary_tree *bt){
@@ -15,11 +15,12 @@ bool search(binary_tree *bt, int key){
 	if(bt == NULL){
 		return NULL;
 	}
-	else if(key < bt->data){
-		return search(bt->left, key);
+	else if(key < (bt->root->data)){
+        Node *current = bt->root;
+		return search(bt->root->left, key);
 	}
 	else{
-		return search(bt->right, key);
+		return search(bt->root->right, key);
 	}
 }
 
@@ -27,16 +28,16 @@ void insert(binary_tree *bt, int value){
 	
 	if(bt == NULL){
 		bt = malloc(sizeof(Node));
-		bt->data = value;
-		bt->left == NULL;
-		bt->right == NULL;
+		bt->root->data = value;
+		bt->root->left == NULL;
+		bt->root->right == NULL;
 	}
 	
-	else if(value < bt->data){
-		bt->left = insert(bt->left, value);
+	else if(value < bt->root->data){
+		bt->root->left = insert(bt->left, value);
 	}
 	else{
-		bt->right = insert(bt->right, value);
+		bt->root->right = insert(bt->right, value);
 	}
 	
 }

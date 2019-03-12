@@ -21,10 +21,10 @@ int main(int argc, char *argv[]){
 		return -1; //-1 indicates an error
 	}
 	
-	fscanf(infile, "%d", token);
+	fscanf(infile, "%d", &token);
 	while(!feof(infile)){
 		insert(&bt, token);
-		fscanf(infile, "%d", token);
+		fscanf(infile, "%d", &token);
 	}
 	
 	printf("Print in order\n");
