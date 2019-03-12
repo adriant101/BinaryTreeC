@@ -1,5 +1,5 @@
 #ifndef NODE_H
-#ifndef NODE_H
+
 
 typedef struct node{
 	int data;
