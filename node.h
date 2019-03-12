@@ -1,8 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef NODE_H
+#ifndef NODE_H
 
-int main(void){
+typedef struct node{
+	int data;
+	struct node *left;
+	struct node *right;
+}Node;
 
-	return 0;
-}
+#endif
