@@ -15,12 +15,12 @@ bool search(binary_tree *bt, int key){
 	if(bt == NULL){
 		return NULL;
 	}
-	else if(key < (bt->root->data)){
-        Node *current = bt->root;
-		return search(bt->root->left, key);
+	else if(key < (root->data)){
+        Node *current = root;
+		return search(root->left, key);
 	}
 	else{
-		return search(bt->root->right, key);
+		return search(root->right, key);
 	}
 }
 
