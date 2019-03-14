@@ -30,7 +30,7 @@ bool search(binary_tree *bt, int key){
 			root = root->right;
 		}
 		else{
-			return false;
+			return  false;
 		}
 	}
 	
