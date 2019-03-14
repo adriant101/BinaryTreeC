@@ -6,6 +6,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+#include "node.h"
+
 typedef stuct binary_tree{
 	Node *root;
 	int size;

@@ -4,7 +4,9 @@
 
 #include "node.h"
 
-int main(void){
-
-	return 0;
+void newNode(int value){
+	Node *newNode = malloc(sizeof(Node));
+	newNode->data = value;
+	newNode->left == NULL;
+	newNode->right == NULL;
 }
