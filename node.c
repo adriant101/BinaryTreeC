@@ -4,10 +4,13 @@
 
 #include "node.h"
 
-void newNode(int inputdata) {
-	//Reserving space for brances. 
-	Node *newnode = (Node*)malloc(sizeof(Node));
-	newnode->data = inputdata;
-	newnode->left = NULL;
-	newnode->right = NULL;
+
+/*Node newNode(int value){
+	Node *newNode = (Node*)malloc(sizeof(Node));
+	newNode->data = value;
+	newNode->left == NULL;
+	newNode->right == NULL;
+    return *newNode;
 }
+*/
+

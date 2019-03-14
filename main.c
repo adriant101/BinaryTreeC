@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <stdbool.h>
 #include "node.h"
 #include "binarytree.h"
 
@@ -20,12 +20,17 @@ int main(int argc, char *argv[]){
 		printf("Could not open the file.\n");
 		return -1; //-1 indicates an error
 	}
+    
 	
-	fscanf(infile, "%d", &token);
+	//fscanf(infile, "%d", &token);
+    //insert(&bt, token);
 	while(!feof(infile)){
-		insert(&bt, token);
+		
 		fscanf(infile, "%d", &token);
+        insert(&bt, token);
+        printf("%d\n", token);
 	}
+    
 	
 	printf("Print in order\n");
 	printinorder(&bt);
@@ -34,16 +39,16 @@ int main(int argc, char *argv[]){
 	printf("\nPrint post order\n");
 	printpostorder(&bt);
 	printf("\n");
-	found = search(&bt, 33);
+	//found = search(&bt, 33);
 	if(found){
 		printf("FOUND 33\n");
 	}
-	found = search(&bt, 38);
+	//found = search(&bt, 38);
 	if(found){
 		printf("FOUND 38\n");
 	}
 	printf("Number of elements in tree: %d\n", btsize(&bt));
-	printf("Tree height: %d\n", treeheight(&bt));
+	//printf("Tree height: %d\n", treeheight(&bt));
 	
 	return 0;
 }

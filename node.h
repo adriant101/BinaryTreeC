@@ -7,5 +7,5 @@ typedef struct node{
 	struct node *right;
 }Node;
 
-void newNode(int inputdata);
+Node newNode(int value);
 #endif
