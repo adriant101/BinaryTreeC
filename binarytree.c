@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include <stdbool.h>
 
-#include "binarytree.h"
+
 #include "node.h"
+
+#include "binarytree.h"
+
 
 void initialize(binary_tree *bt){
 
@@ -35,6 +39,7 @@ bool search(binary_tree *bt, int key){
 	if(bt->root == NULL){
 		return NULL;
 	}
+
 	else if(key < current->data){
 		current = current->left;
 		search(current, key);
@@ -42,6 +47,14 @@ bool search(binary_tree *bt, int key){
 	else if(key > bt->root->data){
 		current = current->right;
 		search(bt->root->right, key);
+
+	else if(key < (bt->root->data)){
+        Node *current = bt->root;
+		return search(bt->root->left, key);
+	}
+	else{
+		return search(bt->root->right, key);
+
 	}
 	
 */	
@@ -50,6 +63,7 @@ bool search(binary_tree *bt, int key){
 
 void insert(binary_tree *bt, int value){
 	
+
 	while(*root){
 		if((*root)->data == value){
 			return 1;
@@ -81,6 +95,20 @@ void insert(binary_tree *bt, int value){
 	else{
 		bt->root->right = insert(bt->right, value);
 		bt->size++;
+    
+	if(bt == NULL){
+		bt = malloc(sizeof(Node));
+		bt->root->data = value;
+		bt->root->left == NULL;
+		bt->root->right == NULL;
+	}
+	
+	else if(value < bt->root->data){
+		bt->root->left = insert(bt->left, value);
+	}
+	else{
+		bt->root->right = insert(bt->right, value);
+
 	}
 	
 */

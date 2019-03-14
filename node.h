@@ -1,5 +1,5 @@
 #ifndef NODE_H
-#ifndef NODE_H
+
 
 typedef struct node{
 	int data;
@@ -7,4 +7,5 @@ typedef struct node{
 	struct node *right;
 }Node;
 
+void newNode(int inputdata);
 #endif
