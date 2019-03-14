@@ -8,7 +8,12 @@
 
 
 
+
+
+
+
 typedef struct binary_tree{
+ 
 	Node *root;
 	int size;
 }binary_tree;
