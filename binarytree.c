@@ -129,12 +129,25 @@ int btsize(binary_tree *bt){
 	return bt->size;
 }
 
-/*int treeheight(binary_tree *bt){
-	int leftHeight, rightHeight;
-	if(root == NULL){
-		return -1;
-	}
-	leftHeight = treeheight(bt->left);
-	rightHeight = treeheight(bt->right);
-	
-}*/
+int treeHeightTraverse(Node* node){
+    if (node==NULL)  
+       return 0; 
+   else 
+   { 
+       /* compute the depth of each subtree */
+       int lDepth = treeHeightTraverse(node->left); 
+       int rDepth = treeHeightTraverse(node->right); 
+  
+       /* use the larger one */
+       if (lDepth > rDepth)  
+           return(lDepth+1); 
+       else return(rDepth+1); 
+   } 
+}
+int treeheight(binary_tree *bt)  
+{  
+    
+return treeHeightTraverse(bt->root); 
+    
+
+}
