@@ -28,7 +28,8 @@ int main(int argc, char *argv[]){
 		
 		fscanf(infile, "%d", &token);
         insert(&bt, token);
-        printf("%d\n", token);
+      
+        //printf("%d\n", token);
 	}
     
 	
@@ -39,11 +40,11 @@ int main(int argc, char *argv[]){
 	printf("\nPrint post order\n");
 	printpostorder(&bt);
 	printf("\n");
-	//found = search(&bt, 33);
+	found = search(&bt, 33);
 	if(found){
 		printf("FOUND 33\n");
 	}
-	//found = search(&bt, 38);
+	found = search(&bt, 38);
 	if(found){
 		printf("FOUND 38\n");
 	}

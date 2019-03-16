@@ -34,86 +34,72 @@ bool search(binary_tree *bt, int key){
 		}
 	}
 	
-/*
-	Node *current = bt->root;
-	if(bt->root == NULL){
-		return NULL;
-	}
-<<<<<<< HEAD
-	else if(key < (root->data)){
-        Node *current = root;
-		return search(root->left, key);
-	}
-	else{
-		return search(root->right, key);
-=======
 
-	else if(key < current->data){
-		current = current->left;
-		search(current, key);
-	}
-	else if(key > bt->root->data){
-		current = current->right;
-		search(bt->root->right, key);
-
-	else if(key < (bt->root->data)){
-        Node *current = bt->root;
-		return search(bt->root->left, key);
-	}
-	else{
-		return search(bt->root->right, key);
-
->>>>>>> 4a791cf366396b1e29219a9e90745dacacbfef98
-	}
-	
-*/	
 	
 }
 
-void insert(binary_tree *bt, int value){
-	
-   Node* node = (Node*)malloc(sizeof(Node));
-    
-   
-    node->data = value;
-    node->left == NULL;
-    node->right == NULL;
-    
-    
-        if(bt->root == NULL){
+
+void insert(binary_tree *bt, int data) {
+   Node  *tempNode = (Node*)malloc(sizeof(Node));
+    Node *current;
+    Node *parent;
+
+   tempNode->data = data;
+   tempNode->left = NULL;
+   tempNode->right = NULL;
+
+   //if tree is empty
+   if(bt->root == NULL) {
+      bt->root = tempNode;
+        bt->size++;
+   } else {
+      current = bt->root;
+      parent = NULL;
+
+      while(1) { 
+         parent = current;
+         
+         //go to left of the tree
+         if(data < parent->data) {
+            current = current->left;                
             
-           (bt->root) = node;
+            //insert to the left
+            if(current == NULL) {
+               parent->left = tempNode;
+                 bt->size++;
+               return;
+            }
+         }  //go to right of the tree
+         else {
+            current = current->right;
+
+            //insert to the right
+            if(current == NULL) {
+               parent->right = tempNode;
+                 bt->size++;
+               return;
+            }
+         }
+      }
+      
    }
-	while(bt->root){
-        
-		
-		if(bt->root->data > value){
-            
-			bt->root = (bt->root->left);
-           
-            
-		}
-		else{
-			bt->root = (bt->root->right);
-		}
-	}
-    (bt->root) = node;
-    bt->size++;
     
-	
-	
-}
-void printNodeOrder (Node *node){
-    if(node != NULL){
-        printf("%d ", node->data);
-		printNodeOrder(node->left);
-		printNodeOrder(node->right);
-	}
 }
 
+
+void printNodeOrder (Node *node){
+    if(node != NULL) {
+      printNodeOrder(node->left);
+      printf("%d ",node->data);          
+      printNodeOrder(node->right);
+   }
+}
+
+  
 void printinorder(binary_tree *bt){
 	printNodeOrder(bt->root);
 }
+
 
 void printNodePreOrder(Node *node){
     if(node != NULL){
