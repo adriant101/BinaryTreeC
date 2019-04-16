@@ -1,8 +1,0 @@
-myprog.exe : main.o binarytree.o
-	gcc main.o binarytree.o -o myprog.exe
-
-main.o : main.c
-	gcc -Wall -c main.c
-
-binarytree.o: binarytree.c
-	gcc -Wall -c binarytree.c
